@@ -14,6 +14,11 @@ task :environment do
   require_relative 'config/environment'
 end
 
+desc 'drop into console'
+task :console => :environment do 
+  Pry.start 
+end 
+
 Rake::Task["db:drop"].clear
 
 namespace :db do
